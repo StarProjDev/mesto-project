@@ -8,6 +8,14 @@
   margin-top: 15px;
   margin-left: 18px;
   background-image: url("./../../../images/edit.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid white;
+  transition: all 0.335s ease-in;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 940px) {
@@ -22,5 +30,6 @@
     margin-top: 8px;
     width: 18px;
     height: 18px;
+    background-image: url("./../../../images/edit-mobile.svg");
   }
 }
