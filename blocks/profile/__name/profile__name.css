@@ -22,6 +22,7 @@
   .profile__name {
     font-size: 27px;
     line-height: 32.68px;
-    max-width: 190px;
+    max-width: 189px;
+    padding-right: 10px;
   }
 }

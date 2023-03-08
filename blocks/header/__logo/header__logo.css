@@ -1,5 +1,11 @@
 @media (max-width: 940px) {
-    .header__logo {
-        margin-left: 27px;
-    }
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+@media (max-width: 580px) {
+  .header__logo {
+    content: url("./../../../images/logo-mobile.svg");
+  }
 }
