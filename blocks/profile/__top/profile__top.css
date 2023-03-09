@@ -4,6 +4,7 @@
 
 @media (max-width: 680px) {
     .profile__top {
+        position: relative;
         justify-content: center;
         align-items: baseline;
     }
