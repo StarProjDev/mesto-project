@@ -11,6 +11,7 @@
   height: 32px;
   cursor: pointer;
   transition: all 0.335s ease-in;
+  
 }
 
 .popup__button-close:hover {

@@ -1,0 +1,4 @@
+.popup-big__container {
+    position: relative;
+    transition: all 0.335s ease-in;
+}

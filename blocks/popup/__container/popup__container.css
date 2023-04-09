@@ -6,6 +6,7 @@
   max-width: 430px;
   width: 100%;
   position: relative;
+  transition: all 0.335s ease-in;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
 
