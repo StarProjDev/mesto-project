@@ -92,71 +92,49 @@ const initialCards = [
     }
 ];
 
-// Удаляет старые карточки для добавления новых с массива
-const cardList = document.querySelector('.elements');
-
-cardList.querySelectorAll('.element').forEach((cardElement) => {
-    cardElement.remove();
-});
-
-// Создание карточки
+// Создание карточки из шаблона
 function createCard(card) {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('element');
-
-    const imageElement = document.createElement('img');
-    imageElement.classList.add('element__image');
+    const cardTemplate = document.querySelector('#card-template');
+    const cardElement = cardTemplate.content.cloneNode(true);
+  
+    const imageElement = cardElement.querySelector('.element__image');
     imageElement.src = card.link;
     imageElement.alt = card.name;
-    cardElement.appendChild(imageElement);
-
-    const textElement = document.createElement('div');
-    textElement.classList.add('element__text');
-    cardElement.appendChild(textElement);
-
-    const deleteElement = document.createElement('button');
-    deleteElement.classList.add('element__delete-button');
-    textElement.appendChild(deleteElement);
-
-    deleteElement.addEventListener('click', () => {
-        cardElement.remove();
-    });
-
-    const titleElement = document.createElement('h2');
-    titleElement.classList.add('element__title');
+  
+    const titleElement = cardElement.querySelector('.element__title');
     titleElement.textContent = card.name;
-    textElement.appendChild(titleElement);
-
-    const buttonElement = document.createElement('button');
-    buttonElement.classList.add('element__button');
-    textElement.appendChild(buttonElement);
-
+  
+    const deleteElement = cardElement.querySelector('.element__delete-button');
+    deleteElement.addEventListener('click', () => {
+      cardElement.remove();
+    });
+  
+    const buttonElement = cardElement.querySelector('.element__button');
     buttonElement.addEventListener('click', () => {
-        buttonElement.classList.toggle('element__button_active');
+      buttonElement.classList.toggle('element__button_active');
     });
-
-    // Создание карточки изображения
+  
     const bigImageElement = cardElement.querySelector('.element__image');
-    
-    bigImageElement.addEventListener('click', () => { 
-
-        document.documentElement.style.overflow = 'hidden';
-
-        const popupElement = document.querySelector('#big-image');
-
-        popupElement.querySelector('.popup-big__image').src = card.link;
-        popupElement.querySelector('.popup-big__text').textContent = card.name;
-
-        popupElement.classList.add('popup-big_opened');
+    bigImageElement.addEventListener('click', () => {
+      document.documentElement.style.overflow = 'hidden';
+  
+      const popupElement = document.querySelector('#big-image');
+  
+      popupElement.querySelector('.popup-big__image').src = card.link;
+      popupElement.querySelector('.popup-big__text').textContent = card.name;
+  
+      popupElement.classList.add('popup-big_opened');
     });
-
+  
     return cardElement;
-}
+  }
 
-// Добавление карточки на сайт
+  const cardsContainer = document.querySelector('.elements');
+
+// Отрисовка начальных карточек
 initialCards.forEach((card) => {
-    const cardElement = createCard(card);
-    cardList.appendChild(cardElement);
+  const cardElement = createCard(card);
+  cardsContainer.appendChild(cardElement);
 });
 
 // Добавление карточки в массив
